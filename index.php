@@ -6,8 +6,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
  $image_name = $_POST['image_name'];
  $decodificarimagen=base64_decode("$image");
 
-$options = ['gs' => ['acl' => 'public-read']];
-$context = stream_context_create($options);
+$metadata = ['acl' => 'public-read'];
+$options = [
+    'Content-Type' => 'image/jpg',
+    'metadata' => $metadata];
+$context = stream_context_create(['gs' => $options]);
 $fileName = "gs://imagenes_ubigiis/".$image_name.".JPG";
 if(file_put_contents($fileName, $decodificarimagen, 0, $context)){
 echo "Imagen subida satisfactoriamente".$image_name;
