@@ -13,7 +13,7 @@ $options = [
 $context = stream_context_create(['gs' => $options]);
 $fileName = "gs://imagenes_ubigiis/".$image_name.".JPG";
 if(file_put_contents($fileName, $decodificarimagen, 0, $context)){
-echo "Imagen subida satisfactoriamente".$image_name;
+echo "Imagen subida satisfactoriamente";
  }else{
  echo "Error al subir la imagen";
  }
