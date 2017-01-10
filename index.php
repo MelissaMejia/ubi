@@ -1,5 +1,5 @@
 <?php
- echo "hola";
+ echo "ultimo";
  if($_SERVER['REQUEST_METHOD']=='POST'){
  $image = $_POST['image'];
  $image_name = $_POST['image_name'];
